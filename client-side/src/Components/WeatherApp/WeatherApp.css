@@ -1,0 +1,20 @@
+/*WEATHER-APP*/
+.WeatherApp {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 60px auto;
+}
+  
+.WeatherApp > header{
+    background-color: rgb(64, 0, 124);
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+}
+  
+.WeatherApp > main {
+    background-color: rgb(107, 157, 231);
+    padding: 4% 20%;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,13 @@
+/*GLOBAL*/
+body,
+html,
+#root {
+  height: 100%;
+  font-size: 18px;
+  /* font-family: ; */
+}
+
+/*APP*/
+.App {
+  height: 100%;
+}

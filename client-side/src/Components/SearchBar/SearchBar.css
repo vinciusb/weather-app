@@ -1,0 +1,14 @@
+.SearchBar {
+    display: flex;
+}
+
+.search-button {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+}
+
+.search-button:hover {
+    background-color: rgb(185, 184, 184);
+    cursor: pointer;
+}

@@ -1,0 +1,101 @@
+.WeatherContainer {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+/*HEADERS*/
+.WeatherContainer h1,h2,h3,h4 {
+    margin: 0;
+}
+
+.WeatherContainer h1 {
+    font-weight: bolder;
+    font-size: 7rem;
+    line-height: 6rem;
+}
+
+.WeatherContainer h2 {
+    font-size: 2.3rem;
+}
+
+.WeatherContainer h3 {
+    font-size: 1.5rem;
+}
+
+.WeatherContainer h4 {
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.WeatherContainer > * {
+    padding: 50px;
+}
+
+/**/
+
+.WeatherContainer .upperContainer {
+    background-color: blueviolet;
+    color: white;
+    padding-bottom: 0;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.WeatherContainer .lowerContainer {
+    background-color: white;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+/*WEATHER*/
+.WeatherContainer .weather {
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+/*CLIMATE*/
+.WeatherContainer .temperature {
+    display: flex;
+    align-items: baseline;
+}
+
+/*CITY*/
+.WeatherContainer .city {
+    vertical-align: text-top;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    text-align: center;
+}
+
+.WeatherContainer .underline {
+    background-color: white;
+    width: 70%;
+    height: 10px;
+    border-radius: 7px;
+}
+
+/*ATMOSPHERE*/
+.WeatherContainer .atmosphere {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.spacer-bar {
+    background-color: white;
+    height: 70px;
+    width: 4px;
+    border-radius: 7px;
+}
