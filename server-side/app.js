@@ -6,7 +6,7 @@ var logger = require('morgan');
 const cors = require('cors');
 
 // Require the routers
-const loginRouter = require('./routes/login');
+const signinRouter = require('./routes/signin');
 const signupRouter = require('./routes/signup');
 
 var app = express();
@@ -30,6 +30,7 @@ app.use((req, res, next) => {
 
 // Assign routers to the right routes
 app.use('/signup', signupRouter);
+app.use('/signin', signinRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -6,7 +6,8 @@ class SignContainer extends React.Component {
         super(props);
 
         this.state = {
-            signingIn: true
+            signingIn: true,
+            failed: null
         };
 
         this.handleSignIn = this.handleSignIn.bind(this);
@@ -14,8 +15,15 @@ class SignContainer extends React.Component {
         this.changeToSignUp = this.changeToSignUp.bind(this);
     }
 
-    handleSignIn(form) {
-        this.props.onSignIn(form);
+    handleSignIn(data) {
+        const url = `http://localhost:4001/signin?email=${data.email}&pwd=${data.password}`;
+        fetch(url)
+            .then(res => res.ok ?
+                this.props.onSignIn() : res.text().then(msg => { throw new Error(msg); })
+            )
+            .catch(err => {
+                console.log(err.message);
+            });
     }
 
     handleSignUp(data) {
@@ -26,9 +34,14 @@ class SignContainer extends React.Component {
         };
             
         fetch('http://localhost:4001/signup', putMethod)
+            .then(res => res.ok ?
+                res.json() : res.text().then(msg => { throw new Error(msg); })
+            )
             .then(res => console.log(res))
             // .then(this.props.onSignIn())
-            ;
+            .catch(err => {
+                console.log(err.message);
+            });
     }
 
     changeToSignUp() {
@@ -38,7 +51,7 @@ class SignContainer extends React.Component {
     render() {
         return (
             <div className="SignContainer">
-                <Sign type={ this.state.signingIn } onSubmit={ this.state.signingIn ? this.handleSignIn : this.handleSignUp } />
+                <Sign type={ this.state.signingIn } failMsg={"a"} onSubmit={ this.state.signingIn ? this.handleSignIn : this.handleSignUp } />
                 { this.state.signingIn && <p>Not a member yet? <a onClick={ this.changeToSignUp }>Sign up</a></p> }
             </div>
         );
@@ -88,10 +101,10 @@ class Sign extends React.Component {
         else {
             children =
                 <form action="" onSubmit={ this.handleSubmit } >
-                    <input name="fName" type="text" placeholder="First name" value={ this.state.formData.fName } onChange={ this.handleChange } />
-                    <input name="lName" type="text" placeholder="Last name" value={ this.state.formData.lName } onChange={ this.handleChange } />
-                    <input name="email" type="text" placeholder="E-mail" value={ this.state.formData.email } onChange={ this.handleChange } />
-                    <input name="password" type="password" placeholder="Password" value={ this.state.formData.password } onChange={ this.handleChange } />
+                <input name="fName" type="text" placeholder="First name" minLength="1" maxLength="20" value={ this.state.formData.fName } onChange={ this.handleChange } required={ true } />
+                    <input name="lName" type="text" placeholder="Last name" minLength="1" maxLength="20" value={ this.state.formData.lName } onChange={ this.handleChange } required={ true } />
+                    <input name="email" type="text" placeholder="E-mail" minLength="4" value={ this.state.formData.email } onChange={ this.handleChange } required={ true } />
+                    <input name="password" type="password" placeholder="Password" minLength="8" maxLength="20" value={ this.state.formData.password } onChange={ this.handleChange } required={ true } />
                     <input type="submit" value="Sign Up" />
                 </form>;
         }

@@ -14,7 +14,7 @@ class App extends React.Component {
         this.signIn = this.signIn.bind(this);
     }
 
-    signIn(form) {
+    signIn() {
         this.setState({ signedIn: true });
     }
 
