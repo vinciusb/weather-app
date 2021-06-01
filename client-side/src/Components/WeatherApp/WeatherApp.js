@@ -12,7 +12,13 @@ class WeatherApp extends React.Component {
         this.state = {
             weatherResult: {},
             forecastResult: {},
-            tempUnit: true
+            tempUnit: true,
+            timeFormat: false,
+            filter: {
+                sat: 0.4,
+                hue: 0,
+                brightness: 75
+            }
         };
 
         this.handleSearch = this.handleSearch.bind(this);
@@ -27,19 +33,25 @@ class WeatherApp extends React.Component {
                 }
             ));
     }
-    
+
     render() {
         return (
-            <div className="WeatherApp">
-                <header>
-                    <SearchBar onSearch={ this.handleSearch }/>
-                </header>
-                <main>
-                    {
-                        Object.entries(this.state.weatherResult).length !== 0 &&
-                        <WeatherContainer data={ this.state.weatherResult } forecast={ this.state.forecastResult } unit={ this.state.tempUnit } />
-                    }
-                </main>
+            <div className="WeatherApp" beo>
+                <div className="WeatherApp-inside">
+                    <header>
+                        <SearchBar onSearch={ this.handleSearch } />
+                    </header>
+                    <main>
+                        {
+                            Object.entries(this.state.weatherResult).length !== 0 &&
+                            <WeatherContainer
+                                data={ this.state.weatherResult }
+                                forecast={ this.state.forecastResult }
+                                unit={ this.state.tempUnit }
+                                timeFormat={ this.state.timeFormat } />
+                        }
+                    </main>
+                </div>
             </div>
         );
     }

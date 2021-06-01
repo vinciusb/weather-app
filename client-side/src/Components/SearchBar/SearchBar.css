@@ -1,14 +1,45 @@
+/*SEARCH BAR*/
 .SearchBar {
     display: flex;
+    height: 30px;
+    width: 20%;
+    box-sizing: border-box;
 }
+
+.SearchBar input {
+    border: white 1px solid;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-sizing: border-box;
+    min-width: 100px;
+    padding-left: 7px;
+}
+
+.SearchBar input:focus {
+    outline: none;
+    border: rgb(80, 185, 255) 1px solid;
+}
+
+/*BUTTON*/
 
 .search-button {
     width: 30px;
-    height: 30px;
+    height: 100%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .search-button:hover {
     background-color: rgb(185, 184, 184);
+    fill: white;
     cursor: pointer;
+}
+
+.search-button .search-scope {
+    width: 25px;
+    height: 25px;
 }

@@ -4,6 +4,14 @@
     box-sizing: border-box;
     display: grid;
     grid-template-rows: 1fr 1fr;
+    font-size: 18px;
+}
+
+.WeatherContainer .underline {
+    background-color: white;
+    width: 70%;
+    height: 10px;
+    border-radius: 7px;
 }
 
 /*HEADERS*/
@@ -26,29 +34,14 @@
     font-weight: normal;
 }
 
-.WeatherContainer > * {
-    padding: 50px;
-}
-
-/**/
-
+/*UPPER CONTAINER*/
 .WeatherContainer .upperContainer {
-    background-color: blueviolet;
     color: white;
-    padding-bottom: 0;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-.WeatherContainer .lowerContainer {
-    background-color: white;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template:  1fr / auto auto;
+    row-gap: auto;
+    column-gap: 40px;
+    justify-items: center;
 }
 
 /*WEATHER*/
@@ -60,9 +53,42 @@
 }
 
 /*CLIMATE*/
+.WeatherContainer .climate {
+    display: flex;   
+    flex-flow: column;
+    align-items: center;
+}
+
 .WeatherContainer .temperature {
     display: flex;
     align-items: baseline;
+}
+
+/*ATMOSPHERE*/
+.WeatherContainer .atmosphere {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.spacer-bar {
+    background-color: white;
+    height: 70px;
+    width: 4px;
+    border-radius: 7px;
+}
+
+.WeatherContainer .icon {
+    height: 30px;
+    width: auto;
+    fill: white;
+    margin-left: 5px;
+}
+
+.WeatherContainer .atmo-prop {
+    display: flex;
 }
 
 /*CITY*/
@@ -74,24 +100,25 @@
     text-align: center;
 }
 
-.WeatherContainer .underline {
-    background-color: white;
-    width: 70%;
-    height: 10px;
-    border-radius: 7px;
-}
-
-/*ATMOSPHERE*/
-.WeatherContainer .atmosphere {
-    margin-top: 30px;
+/*LOWER CONTAINER*/
+.WeatherContainer .lowerContainer {
+    padding: 20px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
 }
 
-.spacer-bar {
-    background-color: white;
-    height: 70px;
-    width: 4px;
-    border-radius: 7px;
+/*MEDIA QUERIES*/
+
+@media only screen and (max-width: 770px) {
+    .WeatherContainer .upperContainer {
+        grid-template:  auto auto / 1fr;
+    }
+
+    .WeatherContainer .city {
+        grid-area: 1 / 1 / span 1 / span 1;
+    }
 }
