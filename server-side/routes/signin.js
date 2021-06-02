@@ -10,7 +10,8 @@ router.get('/', (req, res, next) => {
 
     dt_base.correctLogin(userInfo)
         .then(exists => exists ? 
-            res.status(200).json(userInfo) : res.status(401).send('User infos aren\'t right.'));
+            res.status(200).json(userInfo) : res.status(401).send('User infos aren\'t right.'))
+        .catch(() => res.status(401).send('Not able to access the users database.'));
 });
 
 module.exports = router;

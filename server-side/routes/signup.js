@@ -4,7 +4,8 @@ const router = express.Router();
 
 router.get('/', (req, res, next) => {
     dt_base.getRows()
-        .then(rows => res.status(200).json(rows));
+        .then(rows => res.status(200).json(rows))
+        .catch(() => res.status(401).send('Not able to access the users database.'));
 });
 
 router.put('/', (req, res, next) => {
@@ -17,7 +18,7 @@ router.put('/', (req, res, next) => {
             if(error.constraint === 'users_first_name_last_name_idx') msg = 'This name has been already registered.';
             else if(error.constraint === 'users_email_key') msg = 'Email already in use.';
             else if(error.constraint === 'users_password_key') msg = 'Password already in use.';
-            else throw error;
+            else msg = "Internal error happened"
             res.status(409).send(msg);
         });
 });

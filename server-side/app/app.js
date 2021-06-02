@@ -6,8 +6,8 @@ var logger = require('morgan');
 const cors = require('cors');
 
 // Require the routers
-const signinRouter = require('./routes/signin');
-const signupRouter = require('./routes/signup');
+const signinRouter = require('../routes/signin');
+const signupRouter = require('../routes/signup');
 
 var app = express();
 

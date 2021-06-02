@@ -43,3 +43,11 @@
     width: 25px;
     height: 25px;
 }
+
+/*Error*/
+.error-icon {
+    height: 30px;
+    width: auto;
+    fill: rgb(211, 37, 37);
+    margin-left: 5px;
+}

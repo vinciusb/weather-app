@@ -19,11 +19,11 @@ class SignContainer extends React.Component {
         var url;
         var method;
         if(this.state.signingIn) {
-            url = `http://localhost:4001/signin?email=${data.email}&pwd=${data.password}`;
+            url = `https://my-weather-reg.herokuapp.com/signin?email=${data.email}&pwd=${data.password}`;
             method = {};
         }
         else {
-            url = 'http://localhost:4001/signup';
+            url = 'https://my-weather-reg.herokuapp.com/signup';
             method = {
                 method: 'PUT',
                 headers: { 'Content-type': 'application/json; charset=UTF-8' },
@@ -33,7 +33,7 @@ class SignContainer extends React.Component {
 
         fetch(url, method)
             .then(res => {
-                if(res.ok) this.state.signingIn && this.props.onSignIn();
+                if(res.ok) this.props.onSignIn();
                 else res.text().then(msg => this.setState({ msg }));
             })
             .catch(err => {

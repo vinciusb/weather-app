@@ -75,7 +75,7 @@ class WeatherApp extends React.Component {
     handleSearch(text) {
         weatherAPI.searchWeather(text)
             .then(data => {
-                this.setState({ weatherResult: data },
+                this.setState({ weatherResult: data, searchSuccess: true },
                     () => {
                         // Change background color
                         this.handleWeatherChange(this.state.weatherResult.weather[0].main.toUpperCase());
@@ -86,7 +86,10 @@ class WeatherApp extends React.Component {
                     }
                 );
             })
-            .catch(err => console.log(err.message));
+            .catch(err => {
+                if(err.message === '404') this.setState({ searchSuccess: false });
+                else console.log(err.message);
+            });
     }
 
     render() {
@@ -94,7 +97,7 @@ class WeatherApp extends React.Component {
             <div className="WeatherApp" style={ this.getFilterString() }>
                 <div className="WeatherApp-inside">
                     <header>
-                        <SearchBar onSearch={ this.handleSearch } />
+                        <SearchBar onSearch={ this.handleSearch } success={ this.state.searchSuccess } />
                     </header>
                     <main>
                         {
