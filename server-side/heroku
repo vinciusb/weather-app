@@ -1,0 +1,1 @@
+init.sql  pg:psql postgresql-elliptical-96772 --app my-weather-reg
