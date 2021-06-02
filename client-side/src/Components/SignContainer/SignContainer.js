@@ -52,7 +52,7 @@ class SignContainer extends React.Component {
         return (
             <div className="SignContainer">
                 <Sign type={ this.state.signingIn } failMsg={ this.state.msg } onSubmit={ this.handleSign } onChangeSign={ this.changeSign } />
-                { this.state.signingIn && <h3>Not a member yet? <a onClick={ this.changeSign }>Sign up</a></h3> }
+                { this.state.signingIn && <h2>Not a member yet? <a onClick={ this.changeSign }>Sign up</a></h2> }
             </div>
         );
     }

@@ -8,7 +8,7 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            signedIn: true
+            signedIn: false
         };
 
         this.signIn = this.signIn.bind(this);

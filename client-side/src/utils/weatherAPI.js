@@ -5,16 +5,20 @@ const weatherAPI = {
         let url = `http://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${apiKey}`;
         
         return fetch(url)
-            .then(resp => resp.json())
-            .catch(() => console.log('Not able to get the data.'));
+            .then(resp => {
+                if(resp.ok) return resp.json();
+                else throw new Error('Not able to get the data.');
+            })
     },
 
     searchForecast(text) {
         let url = `http://api.openweathermap.org/data/2.5/forecast?q=${text}&appid=${apiKey}`;
         
         return fetch(url)
-            .then(resp => resp.json())
-            .catch(() => console.log('Not able to get the data.'));
+            .then(resp => {
+                if(resp.ok) return resp.json();
+                else throw new Error('Not able to get the data.');
+            });
     }
 }
 

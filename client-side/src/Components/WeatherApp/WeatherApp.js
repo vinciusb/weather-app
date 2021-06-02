@@ -75,14 +75,14 @@ class WeatherApp extends React.Component {
     handleSearch(text) {
         weatherAPI.searchWeather(text)
             .then(data => {
-                if(data.cod === "404") { throw new Error(data.message); };
                 this.setState({ weatherResult: data },
                     () => {
                         // Change background color
                         this.handleWeatherChange(this.state.weatherResult.weather[0].main.toUpperCase());
                         // Search forecasts
                         weatherAPI.searchForecast(text)
-                            .then(data => this.setState({ forecastResult: data }));
+                            .then(data => this.setState({ forecastResult: data }))
+                            .catch(err => console.log(err.message));
                     }
                 );
             })

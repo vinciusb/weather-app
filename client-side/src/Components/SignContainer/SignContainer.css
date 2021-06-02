@@ -9,8 +9,9 @@
     flex-direction: column;
 }
 
-.SignContainer h3 {
+.SignContainer h2 {
     font-weight: normal;
+    margin-left: 32px;
 }
 
 .SignContainer a {
@@ -100,4 +101,11 @@
 .back-arrow:hover {
     cursor: pointer;
     background-color: rgb(236, 236, 236);
+}
+
+/*MEDIA QUERIES*/
+@media only screen and (max-width: 480px) {
+    .Sign {
+        padding: 10px;
+    }
 }
