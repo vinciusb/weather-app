@@ -11,11 +11,11 @@ function createWindow() {
             preload: path.join(__dirname, 'preload.js')
         }
     });
+    const isDev = require('electron-is-dev');
 
     // and load the index.html of the app.
-    mainWindow.loadURL('http://localhost:3000');
-
-    const isDev = require('electron-is-dev');
+    mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
+    
     isDev && require('react-devtools-electron');
 }
 
