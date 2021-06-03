@@ -1,4 +1,4 @@
-const apiKey = "2e40688d153b27c84d987746cb8e1a9a";
+const apiKey = "";
 
 const weatherAPI = {
     searchWeather(text) {
