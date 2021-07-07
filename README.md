@@ -14,7 +14,7 @@ Here are listed some of the functionalities implemented in Weather app:
 - `Forecast System:`
 
     - User is capable to search (in English <a href=""><img src="https://image.flaticon.com/icons/png/512/197/197374.png" width=13 style="height: auto" /></a>) to any city registered in [OpenWeather][OW_API_LINK].
-    - This search results in the current weather and climate conditions in this city.
+    - This search results in the current weather, humidity, wind speed and climate conditions in this city.
     - This search also results in a weather forecast list for the next 5 days, showing the date, the expected temperature and climate condition.
 
 ## This project is sliced in:
