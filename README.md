@@ -13,4 +13,3 @@ This project is sliced in:
 
 - [`Client side`](https://github.com/vinciusb/weather-app/tree/main/client-side)
 - [Server side](https://github.com/vinciusb/weather-app/tree/main/server-side)
-
