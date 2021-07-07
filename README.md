@@ -1,6 +1,6 @@
 # Weather App
 
-Weather app is a project that simulate an weather forecast device and is for study / practise purposes, so there isn't any monetary issues or gains. Project created using [React](https://reactjs.org/), [Heroku](https://www.heroku.com/), [Express](https://expressjs.com/) and [OpenWeather][OW_API_LINK].
+Weather app is a project that simulate an weather forecast device and is for study / practise purposes, so there isn't any monetary issues or gains. Project created using [React](https://reactjs.org/), [Heroku][H_LINK], [Express](https://expressjs.com/) and [OpenWeather][OW_API_LINK].
 
 ## App Functionalities
 
@@ -22,6 +22,10 @@ Here are listed some of the functionalities implemented in Weather app:
 - [`Client side`](https://github.com/vinciusb/weather-app/tree/main/client-side)
 - [`Server side`](https://github.com/vinciusb/weather-app/tree/main/server-side)
 
+## Observations
+
+- As the project is hosted at [Heroku][H_LINK], if the user try to sign in or sign up the first time, it may not work and show a failure message in the app, because the heroku server need some few secconds to "wake up" before the first try.
 
 
+[H_LINK]: https://www.heroku.com/
 [OW_API_LINK]: https://openweathermap.org/api
